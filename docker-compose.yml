@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  db:
+#    image: mysql:5.7
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_DATABASE: "java_learning"
+      MYSQL_ROOT_USER: "root"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ROOT_HOST: 122.161.87.98
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports: "3306:3306"
+    expose: "3306"
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  my-db:
